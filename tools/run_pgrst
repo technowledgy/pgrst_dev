@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Helper to run PostgREST with libpq environment variables
+#
+set -Eeuo pipefail
+
+PGRST_DB_URI="${PGRST_DB_URI:-postgresql:///$PGDATABASE?host=$PGHOST&port=$PGPORT&user=$PGUSER}"
+PGRST_DB_ANON_ROLE="${PGRST_DB_ANON_ROLE:-$PGUSER}"
+PGRST_DB_SCHEMAS="${PGRST_DB_SCHEMAS:-public}"
+
+export PGRST_DB_URI PGRST_DB_ANON_ROLE PGRST_DB_SCHEMAS
+
+exec postgrest
