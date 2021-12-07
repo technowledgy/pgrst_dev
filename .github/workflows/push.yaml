@@ -1,0 +1,71 @@
+name: Push to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - name: Hadolint
+        run: docker compose run --rm hadolint Dockerfile
+      - name: Shellcheck
+        run: docker compose run --rm shellcheck tools/*
+
+  build-test-push:
+    needs: lint
+    strategy:
+      matrix:
+        pg:
+          - 9.6.24
+          - 10.19
+          - 11.14
+          - 12.9
+          - 13.5
+          - 14.1
+        pgrst:
+          - 8.0.0
+          - 9.0.0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - name: Login to Docker
+        uses: docker/login-action@v1.10.0
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Build
+        uses: docker/build-push-action@v2.7.0
+        with:
+          build-args: |
+            PG_VERSION=${{ matrix.pg }}
+            PGRST_VERSION=${{ matrix.pgrst }}
+          load: true
+      - name: Test
+        run: DOCKER_BUILDKIT=1 docker compose run --rm pgrst_dev with_tmp_db with_pgrst curl --fail-with-body http://localhost:3000
+      - name: Push
+        uses: docker/build-push-action@v2.7.0
+        with:
+          build-args: |
+            PG_VERSION=${{ matrix.pg }}
+            PGRST_VERSION=${{ matrix.pgrst }}
+          push: true
+          tags: technowledgy/pgrst_dev:${{ matrix.pg }}-alpine-v${{ matrix.pgrst }}
+
+  dockerhub:
+    needs: build-test-push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - name: Update Docker Hub Description
+        # Currently fails because of
+        # https://github.com/peter-evans/dockerhub-description/issues/10 and
+        # https://github.com/docker/hub-feedback/issues/1927
+        continue-on-error: true
+        uses: peter-evans/dockerhub-description@v2.4.3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_TOKEN }}

@@ -1,0 +1,39 @@
+name: Pull Request
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - name: Hadolint
+        run: docker compose run --rm hadolint Dockerfile
+      - name: Shellcheck
+        run: docker compose run --rm shellcheck tools/*
+
+  build-test:
+    strategy:
+      matrix:
+        pg:
+          - 9.6.24
+          - 10.19
+          - 11.14
+          - 12.9
+          - 13.5
+          - 14.1
+        pgrst:
+          - 8.0.0
+          - 9.0.0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - name: Build
+        uses: docker/build-push-action@v2.7.0
+        with:
+          build-args: |
+            PG_VERSION=${{ matrix.pg }}
+            PGRST_VERSION=${{ matrix.pgrst }}
+      - name: Test
+        run: DOCKER_BUILDKIT=1 docker compose run --rm pgrst_dev with_tmp_db with_pgrst curl --fail-with-body http://localhost:3000
