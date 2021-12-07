@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  hadolint:
+    image: hadolint/hadolint:v2.8.0
+    working_dir: /mnt
+    volumes:
+      - ./:/mnt
+    entrypoint: hadolint
+    tty: true
+
+  shellcheck:
+    image: koalaman/shellcheck:v0.8.0
+    volumes:
+      - ./:/mnt
+
+  pgrst_dev:
+    build: .
+    volumes:
+      - ./:/usr/src
+
