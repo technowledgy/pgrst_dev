@@ -8,15 +8,20 @@
 #
 set -Eeuo pipefail
 
+# helper from pg_dev base image
+# shellcheck disable=SC1090
+source "$(command -v _with_tmp_dir)"
+
 export PGRST_DB_POOL=1
 
-run_pgrst > /dev/null 2>&1 &
+logfile="$PG_DEV_TMP_DIR/with_pgrst.log"
+
+_with_menu_item r "show output for PostgREST" cat "$logfile"
+
+run_pgrst > "$logfile" 2>&1 &
 pid=$!
 
-function cleanup() {
-  kill $pid 2> /dev/null
-}
-trap cleanup EXIT
+echo "kill $pid 2> /dev/null" >> "$PG_DEV_TMP_DIR/cleanup"
 
 # wait for pgrst to be up and ready
 timeout 5s bash <<EOF
