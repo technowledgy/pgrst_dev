@@ -24,6 +24,7 @@ FROM base AS test
 
 RUN apk add \
         --no-cache \
+        ncurses \
         yarn \
   ; yarn global add \
          bats \
