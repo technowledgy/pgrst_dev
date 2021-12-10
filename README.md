@@ -16,7 +16,7 @@ Currently, the following helper script is added on top of `pg_dev`:
 Mount your source code into the container and run `curl` with a temporary database and PostgREST instance:
 
 ```bash
-docker run --rm -v "$PWD:/usr/src" with_tmp_db with_sql schema.sql with_pgrst curl http://localhost:3000
+docker run --rm -v "$PWD:/usr/src" with_pg with_sql schema.sql with_pgrst curl http://localhost:3000
 ```
 
 This will load the schema defined in `schema.sql` through psql, start PostgREST and then fetch the OpenAPI output from the root endpoint.
