@@ -25,6 +25,4 @@ timeout 5s bash <<EOF
   done
 EOF
 
-# Allow re-splitting of arguments on purpose
-# shellcheck disable=SC2068
-($@)
+("$@")
