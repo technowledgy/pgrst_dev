@@ -24,15 +24,10 @@ FROM base AS test
 
 RUN apk add \
         --no-cache \
-        --virtual build-deps \
-        git \
-### bats
-  ; git clone --depth 1 --branch master https://github.com/bats-core/bats-core \
-  ; (cd bats-core \
-   ; ./install.sh / \
-    ) \
-### cleanup
-  ; rm -rf -- * \
-  ; apk del --no-cache build-deps
+        yarn \
+  ; yarn global add \
+         bats \
+         bats-assert \
+         bats-support
 
 FROM base
