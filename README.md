@@ -5,7 +5,7 @@
 
 This images uses [pg_dev](https://github.com/technowledgy/pg_dev) as a base and adds PostgREST for development. It's considered a drop-in replacement during development, while running the official images of PostgreSQL and PostgREST in production.
 
-## Bundled Tools and Scripts
+## Bundled Scripts
 
 Currently, the following helper script is added on top of `pg_dev`:
 
