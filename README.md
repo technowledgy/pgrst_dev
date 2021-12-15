@@ -9,7 +9,7 @@ This images uses [pg_dev](https://github.com/technowledgy/pg_dev) as a base and 
 
 Currently, the following helper script is added on top of `pg_dev`:
 
-- `with_pgrst`: Wrapper around command with makes PostgREST available at `localhost:3000`.
+- `with_pgrst`: Wrapper around command with makes PostgREST available at `localhost:3000`. Defaults to PGUSER for the authenticator role, but can be overriden with PGRST_DEV_AUTHENTICATOR. Other connection parameters are extracted from libpq-style `PG*` environment variables.
 
 ## How to use
 
