@@ -18,7 +18,7 @@ logfile="$PG_DEV_TMP_DIR/with_pgrst.log"
 
 _with_menu_item r "show output for PostgREST" cat "$logfile"
 
-"$(dirname "$0")/_with_pgrst_runner" > "$logfile" 2>&1 &
+"$(dirname "$0")/run_pgrst" > "$logfile" 2>&1 &
 pid=$!
 
 echo "kill $pid 2> /dev/null" >> "$PG_DEV_TMP_DIR/cleanup"
