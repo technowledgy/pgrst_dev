@@ -20,6 +20,8 @@ RUN apk add \
         --no-cache \
         curl
 
+EXPOSE 3000
+
 FROM base AS test
 
 RUN apk add \
