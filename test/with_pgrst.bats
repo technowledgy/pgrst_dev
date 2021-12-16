@@ -6,6 +6,15 @@ load "$(yarn global dir)/node_modules/bats-assert/load.bash"
   run -0 with_pg tools/with_pgrst curl --fail-with-body http://localhost:3000
 }
 
+@test "with_pgrst works with custom database" {
+  POSTGRES_DB=test run -0 \
+    with_pg \
+    with_sql test/db.sql \
+    tools/with_pgrst \
+    curl -s http://localhost:3000/rpc/get_database
+  assert_output '"test"'
+}
+
 @test "with_pgrst uses default users" {
   run -0 \
     with_pg \

@@ -1,0 +1,9 @@
+CREATE ROLE authenticator LOGIN NOINHERIT;
+CREATE ROLE anonymous NOLOGIN ROLE authenticator;
+
+CREATE FUNCTION get_database ()
+  RETURNS TEXT
+  LANGUAGE SQL AS
+$sql$
+  SELECT CURRENT_CATALOG;
+$sql$;
