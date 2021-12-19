@@ -8,23 +8,15 @@
 #
 set -Eeuo pipefail
 
-# helper from pg_dev base image
-source /bin/_with_tmp_dir
-source /bin/_utils
-
 export PGRST_DB_POOL=1
 
-logfile="$PG_DEV_TMP_DIR/with_pgrst.log"
-
-_with_menu_item r "show output for PostgREST" cat "$logfile"
-
-"$(dirname "$0")/run_pgrst" > "$logfile" 2>&1 &
+"$(dirname "$0")/run_pgrst" &
 pid=$!
 
-echo "kill $pid 2> /dev/null" >> "$PG_DEV_TMP_DIR/cleanup"
+trap 'kill $pid 2> /dev/null' EXIT
 
 # wait for pgrst to be up and ready
-catch_log "$logfile" timeout 2s bash <<EOF
+timeout 2s bash <<EOF
   until curl --silent -o /dev/null --fail http://localhost:3000; do
     sleep 1
   done
