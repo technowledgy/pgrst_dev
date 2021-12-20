@@ -5,5 +5,5 @@ CREATE FUNCTION get_users ()
   RETURNS TEXT
   LANGUAGE SQL AS
 $sql$
-  SELECT concat_ws(',', SESSION_USER, CURRENT_USER);
+  SELECT '=====get_users=====' || concat_ws(',', SESSION_USER, CURRENT_USER);
 $sql$;

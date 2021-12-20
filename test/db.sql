@@ -5,5 +5,5 @@ CREATE FUNCTION get_database ()
   RETURNS TEXT
   LANGUAGE SQL AS
 $sql$
-  SELECT CURRENT_CATALOG;
+  SELECT '=====get_database=====' || CURRENT_CATALOG;
 $sql$;
