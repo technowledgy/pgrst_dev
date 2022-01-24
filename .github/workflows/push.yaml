@@ -38,13 +38,13 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Build
-        uses: docker/build-push-action@v2.7.0
+        uses: docker/build-push-action@v2.8.0
         with:
           build-args: |
             PG_VERSION=${{ matrix.pg }}
             PGRST_VERSION=${{ matrix.pgrst }}
       - name: Build Test
-        uses: docker/build-push-action@v2.7.0
+        uses: docker/build-push-action@v2.8.0
         with:
           build-args: |
             PG_VERSION=${{ matrix.pg }}
@@ -53,7 +53,7 @@ jobs:
       - name: Test
         run: DOCKER_BUILDKIT=1 docker compose run --rm bats test
       - name: Push
-        uses: docker/build-push-action@v2.7.0
+        uses: docker/build-push-action@v2.8.0
         with:
           build-args: |
             PG_VERSION=${{ matrix.pg }}
