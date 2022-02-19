@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   hadolint:
-    image: hadolint/hadolint:v2.8.0
+    image: hadolint/hadolint:v2.8.0@sha256:1b47f3192d2c69c622863b84d5cccbfa0c1fac9022bfc297aa931e6d44e51608
     working_dir: /mnt
     volumes:
       - ./:/mnt
@@ -10,7 +10,7 @@ services:
     tty: true
 
   shellcheck:
-    image: koalaman/shellcheck:v0.8.0
+    image: koalaman/shellcheck:v0.8.0@sha256:4c4427336d2b4bdb054a1e97396fa2e9ca0c329a1f43f831b99bcaae4ac24fcd
     volumes:
       - ./:/mnt
 
