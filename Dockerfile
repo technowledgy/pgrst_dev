@@ -7,7 +7,7 @@ FROM postgrest/postgrest:v${PGRST_VERSION} AS postgrest
 FROM technowledgy/pg_dev:${PG_VERSION}-alpine AS base
 
 LABEL author Wolfgang Walther
-LABEL maintainer pgrst-dev@technowledgy.de
+LABEL maintainer opensource@technowledgy.de
 LABEL license MIT
 
 WORKDIR /usr/src
