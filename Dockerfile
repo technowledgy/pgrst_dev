@@ -7,7 +7,7 @@ FROM technowledgy/pg_dev:pg12@sha256:cd8ff44548b6093a72d09638eaf0a2e28288b5fe0fd
 FROM technowledgy/pg_dev:pg13@sha256:4b666021f7d71f3634125d1899660113cc5799b07b0f9e646c059c5cdc073eac AS pg13
 FROM technowledgy/pg_dev:pg14@sha256:1d625135b8e0f891262a2c15b3c740c5c42b5b1a5be4b3168dbdf833cc9be852 AS pg14
 
-FROM postgrest/postgrest:v8.0.0@sha256:4a9e69d24d731b1fa7ffe2691c7943dc1f91121e8d0e2d3e61319ab108f27f29 AS pgrst8
+FROM postgrest/postgrest:v9.0.0@sha256:b9f7ba9ecab10c6179e9dacbd65c90c2a794d91bcfbc9589b802db7545e04223 AS pgrst8
 FROM postgrest/postgrest:v9.0.0@sha256:b9f7ba9ecab10c6179e9dacbd65c90c2a794d91bcfbc9589b802db7545e04223 AS pgrst9
 
 # hadolint ignore=DL3006
