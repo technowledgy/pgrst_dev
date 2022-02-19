@@ -7,8 +7,3 @@ ignored:
   - DL3018
   # shellcheck doesn't recognize the SHELL sh -eux command
   - SC2164
-label-schema:
-  author: text
-  maintainer: email
-  license: spdx
-strict-labels: true
