@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "config:base",
+    "docker:pinDigests",
+    "schedule:earlyMondays"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["pg_dev"],
+      "enabled": false
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["postgrest/postgrest"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["technowledgy/pg_dev"],
+      "groupName": "postgres"
+    }
+  ]
+}

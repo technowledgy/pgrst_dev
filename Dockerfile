@@ -1,10 +1,20 @@
-ARG PGRST_VERSION=9.0.0
-ARG PG_VERSION=14.1
+ARG PG_MAJOR=14
+ARG PGRST_MAJOR=9
 
-# hadolint ignore=DL3049
-FROM postgrest/postgrest:v${PGRST_VERSION} AS postgrest
+FROM technowledgy/pg_dev:pg10 AS pg10
+FROM technowledgy/pg_dev:pg11 AS pg11
+FROM technowledgy/pg_dev:pg12 AS pg12
+FROM technowledgy/pg_dev:pg13 AS pg13
+FROM technowledgy/pg_dev:pg14 AS pg14
 
-FROM technowledgy/pg_dev:${PG_VERSION}-alpine AS base
+FROM postgrest/postgrest:v8.0.0 AS pgrst8
+FROM postgrest/postgrest:v9.0.0 AS pgrst9
+
+# hadolint ignore=DL3006
+FROM pgrst${PGRST_MAJOR} AS postgrest
+
+# hadolint ignore=DL3006
+FROM pg${PG_MAJOR} AS base
 
 LABEL author Wolfgang Walther
 LABEL maintainer opensource@technowledgy.de
