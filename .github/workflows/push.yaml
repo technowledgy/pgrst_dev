@@ -9,7 +9,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.0.0
       - name: Hadolint
         run: docker compose run --rm hadolint Dockerfile
       - name: Shellcheck
@@ -23,7 +23,7 @@ jobs:
         pgrst: [8, 9]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.0.0
       - name: Login to Docker
         uses: docker/login-action@v1.13.0
         with:
@@ -57,7 +57,7 @@ jobs:
     needs: build-test-push
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.0.0
       - name: Update Docker Hub Description
         # Currently fails because of
         # https://github.com/peter-evans/dockerhub-description/issues/10 and
