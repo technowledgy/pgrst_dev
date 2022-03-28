@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   hadolint:
-    image: hadolint/hadolint:v2.9.2@sha256:6c9e9654461b7cf81e1797d4ece13942207e0a92d1a33c8e0275260d39d61e6a
+    image: hadolint/hadolint:v2.9.3@sha256:c90fe0d22b6aa7cb8114cd4022cf7a596f61724e2c66b4e0b03435326f29dede
     working_dir: /mnt
     volumes:
       - ./:/mnt
