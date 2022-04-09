@@ -16,8 +16,8 @@ jobs:
   build-test:
     strategy:
       matrix:
-        pg: [10, 11, 12, 13, 14]
-        pgrst: [8, 9]
+        pg: [10, 11, 12, 13, 14, 14-invoker]
+        pgrst: [8, 9, 10-pre]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.0.0
