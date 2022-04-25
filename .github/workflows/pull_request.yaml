@@ -7,7 +7,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.0.0
+      - uses: actions/checkout@v3.0.2
       - name: Hadolint
         run: docker compose run --rm hadolint Dockerfile
       - name: Shellcheck
@@ -20,7 +20,7 @@ jobs:
         pgrst: [8, 9, 10-pre]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.0.0
+      - uses: actions/checkout@v3.0.2
       - name: Build
         uses: docker/build-push-action@v2.10.0
         with:
