@@ -22,13 +22,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3.0.2
       - name: Build
-        uses: docker/build-push-action@v2.10.0
+        uses: docker/build-push-action@v3.0.0
         with:
           build-args: |
             PG_MAJOR=${{ matrix.pg }}
             PGRST_MAJOR=${{ matrix.pgrst }}
       - name: Build Test
-        uses: docker/build-push-action@v2.10.0
+        uses: docker/build-push-action@v3.0.0
         with:
           build-args: |
             PG_MAJOR=${{ matrix.pg }}
