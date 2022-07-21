@@ -59,10 +59,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3.0.2
       - name: Update Docker Hub Description
-        # Currently fails because of
-        # https://github.com/peter-evans/dockerhub-description/issues/10 and
-        # https://github.com/docker/hub-feedback/issues/1927
-        continue-on-error: true
         uses: peter-evans/dockerhub-description@v3.0.0
         with:
           username: ${{ secrets.DOCKER_USER }}

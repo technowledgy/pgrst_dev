@@ -9,7 +9,7 @@ This images uses [pg_dev](https://github.com/technowledgy/pg_dev) as a base and 
 
 Currently, the following helper script is added on top of `pg_dev`:
 
-- `run_pgrst`: Runs postgrest with connection parameters extracted from libpq-style `PG*` environment variables. The authenticator role defaults to PGUSER, but can be overriden with `PGRST_DEV_AUTHENTICATOR`.
+- `run_pgrst`: Runs postgrest with connection parameters extracted from libpq-style `PG*` environment variables. The authenticator role defaults to `PGUSER`, but can be overriden with `PGRST_DEV_AUTHENTICATOR`.
 - `with pgrst`: Wrapper around command which makes PostgREST available at `localhost:3000` via `run_pgrst`.
 
 ## How to use
