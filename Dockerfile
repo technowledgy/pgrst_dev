@@ -10,7 +10,7 @@ FROM technowledgy/pg_dev:pg14-invoker@sha256:1119c79c6cf7782b73c4633627642520662
 
 FROM postgrest/postgrest:v8.0.0@sha256:4a9e69d24d731b1fa7ffe2691c7943dc1f91121e8d0e2d3e61319ab108f27f29 AS pgrst8
 FROM postgrest/postgrest:v9.0.1@sha256:2fe9360dba5520267f4ba4be6bb9e399a63acfcd081090ca8598064ccb6ac4a8 AS pgrst9
-FROM postgrest/postgrest:v9.0.1.20220717@sha256:efee06d36db67cffe9091c5984b333f9e06a31a42196db7cebf8f72b72adaa17 AS pgrst10-pre
+FROM postgrest/postgrest:v9.0.1.20220802@sha256:39aadf9358fccb8b6a20a7136517a79e4f6f7ea367c19071fae4639012bdb3a8 AS pgrst10-pre
 
 # hadolint ignore=DL3006
 FROM pgrst${PGRST_MAJOR} AS postgrest
