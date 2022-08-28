@@ -20,7 +20,7 @@ jobs:
     strategy:
       matrix:
         pg: [10, 11, 12, 13, 14, 14-invoker]
-        pgrst: [8, 9, 10-pre]
+        pgrst: [9, 10]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.0.2
