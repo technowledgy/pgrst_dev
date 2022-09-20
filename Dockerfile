@@ -17,9 +17,9 @@ FROM pgrst${PGRST_MAJOR} AS postgrest
 # hadolint ignore=DL3006
 FROM pg${PG_MAJOR} AS base
 
-LABEL author Wolfgang Walther
-LABEL maintainer opensource@technowledgy.de
-LABEL license MIT
+LABEL org.opencontainers.image.authors Wolfgang Walther
+LABEL org.opencontainers.image.source https://github.com/technowledgy/pgrst_dev
+LABEL org.opencontainers.image.licences MIT
 
 WORKDIR /usr/src
 SHELL ["/bin/sh", "-eux", "-c"]
