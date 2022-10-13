@@ -1,8 +1,7 @@
 {
   "extends": [
     "config:base",
-    "docker:pinDigests",
-    "schedule:earlyMondays"
+    "docker:pinDigests"
   ],
   "packageRules": [
     {
