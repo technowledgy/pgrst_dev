@@ -18,6 +18,10 @@
     {
       "matchPackageNames": ["technowledgy/pg_dev"],
       "groupName": "postgres"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ]
 }
