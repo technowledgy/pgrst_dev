@@ -1,4 +1,5 @@
 #!/usr/bin/env bats
+bats_require_minimum_version 1.5.0
 load "$(yarn global dir)/node_modules/bats-support/load.bash"
 load "$(yarn global dir)/node_modules/bats-assert/load.bash"
 
