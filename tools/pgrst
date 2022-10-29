@@ -16,8 +16,9 @@ pid=$!
 trap 'kill $pid 2> /dev/null' EXIT
 
 # wait for pgrst to be up and ready
+# uses admin /ready endpoint, but falls back to regular connection for PostgREST v9
 timeout 2s bash <<EOF
-  until curl --silent -o /dev/null --fail http://localhost:3000; do
+  until (curl --silent -o /dev/null --fail http://localhost:3001/ready || curl --silent -o /dev/null --fail http://localhost:3000); do
     sleep 1
   done
 EOF
