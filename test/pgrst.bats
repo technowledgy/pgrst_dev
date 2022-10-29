@@ -5,6 +5,7 @@ load "$(yarn global dir)/node_modules/bats-assert/load.bash"
 PATH="./tools.$PATH"
 
 @test "with pgrst runs command with postgrest available" {
+  PGRST_DB_ANON_ROLE=postgres \
   run -0 \
     with pg \
     with pgrst \
