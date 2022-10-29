@@ -1,3 +1,5 @@
+ALTER ROLE postgres SET pgrst.db_anon_role = 'postgres';
+
 CREATE ROLE authenticator LOGIN NOINHERIT;
 CREATE ROLE anonymous NOLOGIN ROLE authenticator;
 
