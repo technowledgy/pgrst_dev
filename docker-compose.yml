@@ -10,7 +10,7 @@ services:
     tty: true
 
   shellcheck:
-    image: koalaman/shellcheck:v0.8.0@sha256:4c4427336d2b4bdb054a1e97396fa2e9ca0c329a1f43f831b99bcaae4ac24fcd
+    image: koalaman/shellcheck:v0.9.0@sha256:f35e8987b02760d4e76fc99a68ad5c42cc10bb32f3dd2143a3cf92f1e5446a45
     volumes:
       - ./:/mnt
 
