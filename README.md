@@ -1,6 +1,6 @@
 # pgrst_dev
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/technowledgy/pgrst_dev/Push%20to%20main)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/technowledgy/pgrst_dev/push.yaml?branch=main)
 ![GitHub](https://img.shields.io/github/license/technowledgy/pgrst_dev)
 
 This images uses [pg_dev](https://github.com/technowledgy/pg_dev) as a base and adds PostgREST for development. It's considered a drop-in replacement during development, while running the official images of PostgreSQL and PostgREST in production.
