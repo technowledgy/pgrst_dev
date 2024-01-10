@@ -1,8 +1,6 @@
 ARG PG_MAJOR=15
 ARG PGRST_MAJOR=11
 
-FROM technowledgy/pg_dev:pg10@sha256:b2ed578ced1aa5b6e2ec1308a087dc6128c2d4c16a8d7c4f8b7af49962114641 AS pg10
-FROM technowledgy/pg_dev:pg11@sha256:0f054ca9783ee98e9d396250764a580dfc88004afa545bb43f0916eae2f235ef AS pg11
 FROM technowledgy/pg_dev:pg12@sha256:3730ae97cc2b463d6aa7cb48a5326c9e67d1ad616d0d2ba6dc50e6c0e8170a9c AS pg12
 FROM technowledgy/pg_dev:pg13@sha256:5e7dc440050fee5733e2543e3ccfd7778821947b398dbc433219ab648bb96932 AS pg13
 FROM technowledgy/pg_dev:pg14@sha256:d5f4eaf7872a64b85d871bd9b195017f77f483a4361fa7e6e0afb2e09f9b6312 AS pg14
