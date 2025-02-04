@@ -12,7 +12,7 @@ FROM postgrest/postgrest:v9.0.1@sha256:2fe9360dba5520267f4ba4be6bb9e399a63acfcd0
 FROM postgrest/postgrest:v10.2.0@sha256:0885714e16ad539d970c9a0e668a3184e814c488e1f3759a8f2ee40158e780cb AS pgrst10
 FROM postgrest/postgrest:v11.2.2@sha256:23b2dabfc7f3f1a6c11b71f2ce277191659da38ab76042a30c3c8d6c4e07b446 AS pgrst11
 FROM postgrest/postgrest:v12.2.7@sha256:65d7b9d425c86e05d737302e3f434579df54e13a29b1d2161c850b05b9aeaf4b AS pgrst12
-FROM postgrest/postgrest:devel@sha256:4a1c83cfae920b8c5d4da4b93c7f8d1c686b953b5ce86d47efd1b4c5e8a891f5 AS pgrstdevel
+FROM postgrest/postgrest:devel@sha256:54833ad5a7e7cd613de4a6e2061ac427728e319a60c0f01c17a6a175083d6a4c AS pgrstdevel
 
 # hadolint ignore=DL3006
 FROM pgrst${PGRST_MAJOR} AS postgrest
