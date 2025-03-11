@@ -1,25 +1,40 @@
 {
   "extends": [
-    "config:base",
+    "config:recommended",
     "docker:pinDigests"
   ],
   "packageRules": [
     {
-      "matchUpdateTypes": ["major"],
-      "matchPackageNames": ["pg_dev"],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchPackageNames": [
+        "pg_dev"
+      ],
       "enabled": false
     },
     {
-      "matchUpdateTypes": ["major"],
-      "matchPackageNames": ["postgrest/postgrest"],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchPackageNames": [
+        "postgrest/postgrest"
+      ],
       "enabled": false
     },
     {
-      "matchPackageNames": ["technowledgy/pg_dev"],
+      "matchPackageNames": [
+        "technowledgy/pg_dev"
+      ],
       "groupName": "postgres"
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     }
   ]
