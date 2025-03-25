@@ -4,20 +4,9 @@
 #
 set -Eeuo pipefail
 
-postgrest_version=$(postgrest --help | grep -Eo 'PostgREST ([0-9]+)' | awk '{ print $2 }')
-
-if [ "$postgrest_version" == "9" ]; then
-  PGRST_DB_URI="${PGRST_DB_URI:-postgresql:///?host=$PGHOST&port=$PGPORT&user=${PGRST_DEV_AUTHENTICATOR:-$PGUSER}}"
-  PGRST_DB_ANON_ROLE="${PGRST_DB_ANON_ROLE:-$PGUSER}"
-  PGRST_DB_SCHEMAS="${PGRST_DB_SCHEMAS:-public}"
-
-  export PGRST_DB_URI PGRST_DB_ANON_ROLE PGRST_DB_SCHEMAS
-else
-  # v10 and up don't need defaults for db_uri, db_anon_role or db_schemas anymore
-  PGUSER="${PGRST_DEV_AUTHENTICATOR:-$PGUSER}"
-  # v10 and up have an admin endpoint available for health checks
-  PGRST_ADMIN_SERVER_PORT="${PGRST_ADMIN_SERVER_PORT:-3001}"
-  export PGUSER PGRST_ADMIN_SERVER_PORT
-fi
+PGUSER="${PGRST_DEV_AUTHENTICATOR:-$PGUSER}"
+# v10 and up have an admin endpoint available for health checks
+PGRST_ADMIN_SERVER_PORT="${PGRST_ADMIN_SERVER_PORT:-3001}"
+export PGUSER PGRST_ADMIN_SERVER_PORT
 
 exec postgrest "$@"
