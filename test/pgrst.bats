@@ -41,3 +41,12 @@ PATH="./tools.$PATH"
     with curl -s http://localhost:3000/rpc/get_users
   assert_output --partial '"=====get_users=====authenticator,anonymous"'
 }
+
+@test "with pgrst works with PGRST_SERVER_UNIX_SOCKET" {
+  export PGRST_SERVER_UNIX_SOCKET=$(mktemp)
+  PGRST_DB_ANON_ROLE=postgres \
+  run -0 \
+    with pg \
+    with pgrst \
+    with curl --fail-with-body --unix-socket "$PGRST_SERVER_UNIX_SOCKET" http://localhost
+}

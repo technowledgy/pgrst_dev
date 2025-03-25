@@ -16,11 +16,16 @@ pid=$!
 trap 'kill $pid 2> /dev/null' EXIT
 
 # wait for pgrst to be up and ready
-# uses admin /ready endpoint, but falls back to regular connection for PostgREST v9
-timeout 2s bash <<EOF
-  until (curl --silent -o /dev/null --fail http://localhost:${PGRST_ADMIN_SERVER_PORT:-3001}/ready || curl --silent -o /dev/null --fail http://localhost:${PGRST_SERVER_PORT:-3000}); do
-    sleep 1
-  done
+timeout 2s bash <<'EOF'
+  if [ -v PGRST_SERVER_UNIX_SOCKET ]; then
+    until (curl --silent --head -o /dev/null --fail --unix-socket "$PGRST_SERVER_UNIX_SOCKET" http://localhost); do
+      sleep 1
+    done
+  else
+    until (curl --silent --head -o /dev/null --fail http://localhost:${PGRST_SERVER_PORT:-3000}); do
+      sleep 1
+    done
+  fi
 EOF
 
 ("$@")
