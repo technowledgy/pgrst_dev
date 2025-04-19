@@ -11,7 +11,7 @@ FROM technowledgy/pg_dev:pg16@sha256:6a1873a1548373022c574e25859751213112f3edf63
 FROM postgrest/postgrest:v9.0.1@sha256:2fe9360dba5520267f4ba4be6bb9e399a63acfcd081090ca8598064ccb6ac4a8 AS pgrst9
 FROM postgrest/postgrest:v10.2.0@sha256:0885714e16ad539d970c9a0e668a3184e814c488e1f3759a8f2ee40158e780cb AS pgrst10
 FROM postgrest/postgrest:v11.2.2@sha256:23b2dabfc7f3f1a6c11b71f2ce277191659da38ab76042a30c3c8d6c4e07b446 AS pgrst11
-FROM postgrest/postgrest:v12.2.9@sha256:3909ac0fe3d705a498c7ffbe96c1d8a02637aee214a24f0d1f57e93187c548cf AS pgrst12
+FROM postgrest/postgrest:v12.2.10@sha256:df2a570223bbc61f5a00cd1e86f7cd64478551e584d3cd577f5f4a02dd83c18d AS pgrst12
 FROM postgrest/postgrest:devel@sha256:af74239458dc26576a388db7d8011fddadc253e15b3ec65466f45fa025e3af9e AS pgrstdevel
 
 # hadolint ignore=DL3006
