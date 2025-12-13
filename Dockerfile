@@ -4,7 +4,6 @@ ARG PGRST_MAJOR=12
 FROM technowledgy/pg_dev:pg12@sha256:4f78064a155782bfca25f59d1a63b20d2171c6e6c8ee20e1430f09367290f9b0 AS pg12
 FROM technowledgy/pg_dev:pg13@sha256:1007e3fc27543c0391a507db42c18d5d9566281669c7f012508b3ef1fe7972a1 AS pg13
 FROM technowledgy/pg_dev:pg14@sha256:d5a080e57811e8050d438ea5f2105c82c32c2e753d704255d8e55db16a72dce3 AS pg14
-FROM technowledgy/pg_dev:pg14-invoker@sha256:80b48356fc2fb2450ef4cf5e7b66026d9a711d9466a3cca16ab5a0aaff412786 AS pg14-invoker
 FROM technowledgy/pg_dev:pg15@sha256:9cdcf47d0391d944571e823b9d8c7f744ba05b5f2feec46d38b4f7c4b9f2f43a AS pg15
 FROM technowledgy/pg_dev:pg16@sha256:8ed0222fade1c7cad3923f299c8fc050960992ef4381d5a7e28e28ef0e6aa2af AS pg16
 
